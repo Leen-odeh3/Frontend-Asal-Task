@@ -8,7 +8,7 @@ const App = () => {
     <Grid
       container
       spacing={3}
-      style={{ backgroundColor: "#F5F5F5", padding: "25px" }}
+      style={{ backgroundColor: "#F5F5F5", padding: "25px",height:"100vh" }}
     >
       <Grid item xs={5}>
         <LeftSide />

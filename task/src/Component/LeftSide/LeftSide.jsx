@@ -27,20 +27,30 @@ const LeftSide = () => {
       </p>
       <Box style={{}}>
         {notes.map((note, index) => (
-          <div key={index}>
-            <p style={{ marginTop: "20px", marginBottom: "20px" }}>{note}</p>
+          <div
+            key={index}
+            style={{
+              backgroundColor: index === 0 ? "#FFDEF0" : "transparent",
+              padding: "8px",
+              borderRadius: "10px",
+              cursor: "pointer",
+            }}
+          >
+            <p style={{ marginTop: "5px", marginBottom: "10px" }}>{note}</p>
           </div>
         ))}
       </Box>
-      <span
+
+      <Typography
         style={{
           fontWeight: "bolder",
-          marginTop: "10px",
-          marginBottom: "15px",
+          marginTop: "18px",
+          marginBottom: "10px",
+          fontFamily: "cursive",
         }}
       >
         *We will add link click here
-      </span>
+      </Typography>
     </div>
   );
 };

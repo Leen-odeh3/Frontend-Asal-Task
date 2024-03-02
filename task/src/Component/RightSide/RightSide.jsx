@@ -50,7 +50,10 @@ const TransferCreditsComponent = () => {
         here. Select the ones you'd like to transfer and pay the $17 per course
         transfer fee. Learn more here.
       </Typography>
-      <Typography variant="h6" style={{ marginTop: "20px" }}>
+      <Typography
+        variant="h6"
+        style={{ marginTop: "25px", fontSize: "15px", fontWeight: "bold" }}
+      >
         Have you taken courses at any other university, college, or accredited
         higher institution?
       </Typography>

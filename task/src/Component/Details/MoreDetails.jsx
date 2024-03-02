@@ -7,32 +7,50 @@ import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 
 const MoreDetails = () => {
   const navigate = useNavigate();
   const [selectedProgramType, setSelectedProgramType] = useState("");
+  const [graduated, setGraduated] = useState("");
+  const [institutionName, setInstitutionName] = useState("");
+  const [selectedState, setSelectedState] = useState("");
 
   const handleProgramTypeChange = (event) => {
     setSelectedProgramType(event.target.value);
   };
 
-  const [graduated, setGraduated] = useState("");
-
   const handleGraduationChange = (event) => {
     setGraduated(event.target.value);
   };
-
-  const [institutionName, setInstitutionName] = useState("");
 
   const handleInstitutionNameChange = (event) => {
     setInstitutionName(event.target.value);
   };
 
-  const [selectedState, setSelectedState] = useState("");
-
   const handleStateChange = (event) => {
     setSelectedState(event.target.value);
+  };
+
+  const handleSaveAndContinue = async () => {
+    try {
+      const formData = {
+        state: selectedState,
+        institutionName: institutionName,
+        programType: selectedProgramType,
+        graduated: graduated === "Yes" ? true : false,
+      };
+      const response = await axios.post("https://localhost:7290/api/CreditTransfer", formData);
+      if (response.status === 200) {
+        alert("Data saved successfully!");
+        navigate("/next-page");
+      } else {
+        throw new Error("Failed to save data.");
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+      alert("Failed to save data. Please try again later.");
+    }
   };
 
   return (
@@ -133,6 +151,7 @@ const MoreDetails = () => {
           variant="contained"
           color="primary"
           sx={{ width: "50%", marginTop: "10px" }}
+          onClick={handleSaveAndContinue}
         >
           SAVE & CONTINUE
         </Button>

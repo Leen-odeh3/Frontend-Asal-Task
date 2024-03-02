@@ -43,9 +43,12 @@ const MoreDetails = () => {
         ProgramType: selectedProgramType,
         Graduated: graduated === "Yes" ? true : false,
       };
-      const response = await axios.post("https://localhost:7290/api/CreditTransfer", formData);
+      const response = await axios.post(
+        "https://localhost:7290/api/CreditTransfer",
+        formData
+      );
       if (response.status === 201) {
-        toast.success('Data added successfully!', {
+        toast.success("Data added successfully!", {
           position: "bottom-left",
           autoClose: 5000,
           hideProgressBar: false,
@@ -55,13 +58,13 @@ const MoreDetails = () => {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-          });
-      } 
+        });
+      }
     } catch (error) {
       console.log("Error:", error.message);
     }
   };
-  
+
   return (
     <Grid
       container
@@ -75,7 +78,7 @@ const MoreDetails = () => {
         boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
       }}
     >
-      <ToastContainer/>
+      <ToastContainer />
       <Grid item>
         <Typography variant="h5" style={{ marginBottom: "10px" }}>
           TRANSFER CREDITS
@@ -156,7 +159,12 @@ const MoreDetails = () => {
       </Grid>
 
       <Grid item sx={{ width: "100%", marginTop: "10px" }}>
-        <Button sx={{ width: "50%", marginTop: "10px" }} onClick={()=> navigate("/")}>BACK</Button>
+        <Button
+          sx={{ width: "50%", marginTop: "10px" }}
+          onClick={() => navigate("/")}
+        >
+          BACK
+        </Button>
         <Button
           variant="contained"
           color="primary"

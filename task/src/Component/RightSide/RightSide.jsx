@@ -8,10 +8,15 @@ import {
   FormControlLabel,
   Box,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const TransferCreditsComponent = () => {
   const [selectedOption, setSelectedOption] = useState("");
+  const navigate = useNavigate();
 
+  const handleSaveAndContinue = () => {
+    navigate("/details");
+  };
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -82,6 +87,7 @@ const TransferCreditsComponent = () => {
           color="primary"
           disabled={!selectedOption}
           style={{ marginBottom: "10px" }}
+          onClick={handleSaveAndContinue}
         >
           SAVE & CONTINUE
         </Button>

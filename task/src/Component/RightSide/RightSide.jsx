@@ -22,6 +22,8 @@ const TransferCreditsComponent = () => {
         padding: "20px",
         backgroundColor: "white",
         borderRadius: "10px",
+        border: "1px solid #c3c6c9",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
       }}
     >
       <Typography variant="h6" style={{ marginBottom: "20px" }}>
@@ -36,7 +38,7 @@ const TransferCreditsComponent = () => {
           backgroundColor: "#FFDEF0",
           borderRadius: "7px",
           padding: "12px",
-          marginBottom: "20px",
+          marginBottom: "25px",
           marginTop: "20px",
         }}
       >
@@ -44,12 +46,21 @@ const TransferCreditsComponent = () => {
           Tell Us More
         </Typography>
       </Box>
-      <Typography>
-        If you have credits you'd like to transfer, just send them in for
-        evaluation and you'll be able to review a list of your approved courses
-        here. Select the ones you'd like to transfer and pay the $17 per course
-        transfer fee. Learn more here.
-      </Typography>
+      <Box
+        style={{
+          backgroundColor: "#f5f5f5",
+          padding: "13px",
+          borderRadius: "5px",
+          border: "1px solid #c3c6c9",
+        }}
+      >
+        <Typography style={{ fontFamily: "-moz-initial" }}>
+          If you have credits you'd like to transfer, just send them in for
+          evaluation and you'll be able to review a list of your approved
+          courses here. Select the ones you'd like to transfer and pay the $17
+          per course transfer fee. Learn more here.
+        </Typography>
+      </Box>
       <Typography
         variant="h6"
         style={{ marginTop: "25px", fontSize: "15px", fontWeight: "bold" }}
@@ -66,7 +77,12 @@ const TransferCreditsComponent = () => {
       </FormControl>
 
       <div style={{ marginTop: "20px" }}>
-        <Button variant="contained" color="primary" disabled={!selectedOption}>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={!selectedOption}
+          style={{ marginBottom: "10px" }}
+        >
           SAVE & CONTINUE
         </Button>
       </div>

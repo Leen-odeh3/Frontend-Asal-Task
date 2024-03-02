@@ -8,12 +8,12 @@ const App = () => {
     <Grid
       container
       spacing={3}
-      style={{ backgroundColor: "#F5F5F5", padding: "25px",height:"100vh" }}
+      style={{ backgroundColor: "#f5f5f5", padding: "30px 20px"}}
     >
-      <Grid item xs={5}>
+      <Grid item xs={12} sm={5}>
         <LeftSide />
       </Grid>
-      <Grid item xs={7}>
+      <Grid item xs={12} sm={7}>
         <RightSide />
       </Grid>
     </Grid>

@@ -13,7 +13,8 @@ const LeftSide = () => {
       style={{
         padding: "20px",
         backgroundColor: "white",
-        borderRadius: "10px",
+        borderRadius: "10px",border:"1px solid #c3c6c9",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
       }}
     >
       <Typography variant="h6" style={{ marginBottom: "20px" }}>

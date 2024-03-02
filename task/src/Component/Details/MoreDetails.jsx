@@ -86,10 +86,8 @@ const MoreDetails = () => {
           sx={{ width: "100%" }}
         >
           <MenuItem value="">Select State</MenuItem>
-          {/* Add more state options here */}
           <MenuItem value="Alabama">Alabama</MenuItem>
           <MenuItem value="Alaska">Alaska</MenuItem>
-          {/* Add more state options here */}
         </Select>
       </Grid>
 
@@ -113,7 +111,6 @@ const MoreDetails = () => {
           <MenuItem value="">Select program type</MenuItem>
           <MenuItem value="Bachelor">Bachelor</MenuItem>
           <MenuItem value="Master">Master</MenuItem>
-          {/* Add more program type options here */}
         </Select>
       </Grid>
 

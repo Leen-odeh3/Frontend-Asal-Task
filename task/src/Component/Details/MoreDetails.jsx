@@ -6,8 +6,11 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 
 const MoreDetails = () => {
+  const navigate = useNavigate();
   const [selectedProgramType, setSelectedProgramType] = useState("");
 
   const handleProgramTypeChange = (event) => {
@@ -128,7 +131,7 @@ const MoreDetails = () => {
       </Grid>
 
       <Grid item sx={{ width: "100%", marginTop: "10px" }}>
-        <Button sx={{ width: "50%", marginTop: "10px" }}>BACK</Button>
+        <Button sx={{ width: "50%", marginTop: "10px" }} onClick={()=> navigate("/")}>BACK</Button>
         <Button
           variant="contained"
           color="primary"

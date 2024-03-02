@@ -15,8 +15,12 @@ const TransferCreditsComponent = () => {
   const navigate = useNavigate();
 
   const handleSaveAndContinue = () => {
-    navigate("/details");
+    // Navigate only if the selected option is "YES"
+    if (selectedOption === "YES") {
+      navigate("/details");
+    }
   };
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -85,7 +89,7 @@ const TransferCreditsComponent = () => {
         <Button
           variant="contained"
           color="primary"
-          disabled={!selectedOption}
+          disabled={selectedOption !== "YES"} // Disable button if the option is not "YES"
           style={{ marginBottom: "10px" }}
           onClick={handleSaveAndContinue}
         >

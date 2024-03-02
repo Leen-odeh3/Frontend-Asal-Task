@@ -8,6 +8,9 @@ import TextField from "@mui/material/TextField";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Bounce } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MoreDetails = () => {
   const navigate = useNavigate();
@@ -35,24 +38,30 @@ const MoreDetails = () => {
   const handleSaveAndContinue = async () => {
     try {
       const formData = {
-        state: selectedState,
-        institutionName: institutionName,
-        programType: selectedProgramType,
-        graduated: graduated === "Yes" ? true : false,
+        StateOrTerritory: selectedState,
+        InstitutionName: institutionName,
+        ProgramType: selectedProgramType,
+        Graduated: graduated === "Yes" ? true : false,
       };
       const response = await axios.post("https://localhost:7290/api/CreditTransfer", formData);
-      if (response.status === 200) {
-        alert("Data saved successfully!");
-        navigate("/next-page");
-      } else {
-        throw new Error("Failed to save data.");
-      }
+      if (response.status === 201) {
+        toast.success('Data added successfully!', {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });
+      } 
     } catch (error) {
-      console.error("Error:", error.message);
-      alert("Failed to save data. Please try again later.");
+      console.log("Error:", error.message);
     }
   };
-
+  
   return (
     <Grid
       container
@@ -66,6 +75,7 @@ const MoreDetails = () => {
         boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
       }}
     >
+      <ToastContainer/>
       <Grid item>
         <Typography variant="h5" style={{ marginBottom: "10px" }}>
           TRANSFER CREDITS
